@@ -13,6 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    position: relative;  /* Add this line */
 }
 
 .container {
@@ -22,6 +23,7 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 400px;
+    animation: fadeIn 0.3s ease-out;
 }
 
 h1, h2 {
@@ -34,6 +36,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;  /* Add this line */
 }
 
 input[type="text"], input[type="password"], input[type="number"] {
@@ -42,7 +45,7 @@ input[type="text"], input[type="password"], input[type="number"] {
     border-radius: 3px;
 }
 
-input[type="submit"] {
+input[type="submit"], .reset {
     background-color: #007bff;
     color: white;
     border: none;
@@ -51,9 +54,10 @@ input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 3px;
+    width: 100%;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, .reset:hover {
     background-color: #0056b3;
 }
 
@@ -98,17 +102,14 @@ ul li:before {
     }
 }
 
-.container {
-    animation: fadeIn 0.3s ease-out;
+.reset, input[type="submit"] {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
-.reset {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 3px;
+@media (min-width: 768px) {
+    .reset, input[type="submit"] {
+        width: auto;
+    }
 }
