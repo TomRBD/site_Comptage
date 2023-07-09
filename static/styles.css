@@ -112,3 +112,20 @@ ul li:before {
     transition: background-color 0.3s ease;
     border-radius: 3px;
 }
+
+.resetzero {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+    position: fixed;  /* Fix the position */
+    bottom: 0;  /* Position from the bottom */
+    right: 0;  /* Position from the right */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+
