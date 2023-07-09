@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Imprimer la liste</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Liste des familles</h1>
+
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Famille</th>
+            <th>Nombre d'inscrits</th>
+            <th>Nombre d'enfants de moins de 12 ans</th>
+            <th>Prix</th>
+            <th>Moyen de paiement</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for famille in familles %}
+            <tr>
+              <td>{{ famille.nom }}</td>
+              <td>{{ famille.nb_personnes }}</td>
+                <td>{{ famille.enfants_moins_12_ans if famille.enfants_moins_12_ans is not none else 'N/A' }}</td>
+              <td>{{ famille.prix }}</td>
+              <td></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+        <button onClick="window.print()">Imprimer cette page</button>
+    </div>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

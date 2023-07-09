@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comptage des personnes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Ajouter une famille</h1>
+        <form method="POST">
+            <label for="nom_famille">Nom de famille :</label>
+            <input type="text" id="nom_famille" name="nom_famille" required>
+
+            <label for="nb_personnes">Nombre d'inscrits :</label>
+            <input type="number" id="nb_personnes" name="nb_personnes" required>
+
+            <label for="enfants_moins_12_ans">Enfants de moins de 12 ans :</label>
+            <input type="number" id="enfants_moins_12_ans" name="enfants_moins_12_ans" >
+
+            <input type="submit" value="Ajouter">
+        </form>
+
+<h2>Familles enregistrées ({{ total_personnes }} personnes au total, revenu total : {{ total_revenue }}€) :</h2>
+<ul>
+    {% for famille in familles %}
+        {% set normal_price = 19 %}
+        {% set child_price = 12 %}
+        {% if famille.enfants_moins_12_ans %}
+            {% set total_price = (famille.nb_personnes - famille.enfants_moins_12_ans) * normal_price + famille.enfants_moins_12_ans * child_price %}
+        {% else %}
+            {% set total_price = famille.nb_personnes * normal_price %}
+        {% endif %}
+        <li>
+            {{ famille.nom }} : {{ famille.nb_personnes }} personnes {% if famille.enfants_moins_12_ans != None %}(dont {{ famille.enfants_moins_12_ans }} enfants de moins de 12 ans){% endif %} - Coût total : {{ total_price }}€
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+
+<!-- Modal -->
+        <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-footer">
+                <form method="POST" action="{{ url_for('reset') }}">
+                  <button type="submit" class="reset">Remettre à zéro la liste</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="{{ url_for('imprimer') }}" class="reset">Imprimer</a>
+
+ <a href="{{ url_for('logout') }}" class="reset">Se déconnecter</a>
+    </div>
+
+</body>
+</html>
