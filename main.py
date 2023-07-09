@@ -27,7 +27,7 @@ app.secret_key = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///familles.db'
 db = SQLAlchemy(app)
 
-logins = {"username": "password"}
+logins = {"comitedesfetes": "vieillevigne"}
 
 
 class Famille(db.Model):
