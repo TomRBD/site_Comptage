@@ -47,17 +47,18 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-footer">
-                <form method="POST" action="{{ url_for('reset') }}">
-                    <button type="submit" class="reset" id="resetButton">Remettre à zéro la liste</button>
-                </form>
+                   <a href="{{ url_for('imprimer') }}" class="reset">Imprimer</a>
+                    <a href="{{ url_for('logout') }}" class="reset">Se déconnecter</a>
+
               </div>
             </div>
           </div>
         </div>
-        <a href="{{ url_for('imprimer') }}" class="reset">Imprimer</a>
 
- <a href="{{ url_for('logout') }}" class="reset">Se déconnecter</a>
     </div>
+                <form method="POST" action="{{ url_for('reset') }}">
 
+<button type="submit" class="reset">Remettre à zéro la liste</button>
+</form>
 </body>
 </html>
