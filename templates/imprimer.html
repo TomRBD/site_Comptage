@@ -19,7 +19,7 @@
           <tr>
             <th>Famille</th>
             <th>Nombre d'inscrits</th>
-            <th>Nombre d'enfants de moins de 12 ans</th>
+            <th>moins de 12 ans</th>
             <th>Prix</th>
             <th>Moyen de paiement</th>
           </tr>
@@ -29,7 +29,7 @@
             <tr>
               <td>{{ famille.nom }}</td>
               <td>{{ famille.nb_personnes }}</td>
-                <td>{{ famille.enfants_moins_12_ans if famille.enfants_moins_12_ans is not none else 'N/A' }}</td>
+                <td>{{ famille.enfants_moins_12_ans if famille.enfants_moins_12_ans is not none else '0' }}</td>
               <td>{{ famille.prix }}</td>
               <td></td>
             </tr>
