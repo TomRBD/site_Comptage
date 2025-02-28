@@ -25,7 +25,7 @@
         <h2>Familles enregistrées ({{ total_personnes }} personnes au total, revenu total : {{ total_revenue }}€) :</h2>
         <ul>
             {% for famille in familles %}
-            {% set normal_price = 19 %}
+            {% set normal_price = 20 %}
             {% set child_price = 12 %}
             {% if famille.enfants_moins_12_ans %}
                 {% set total_price = (famille.nb_personnes - famille.enfants_moins_12_ans) * normal_price + famille.enfants_moins_12_ans * child_price %}
