@@ -126,7 +126,7 @@ def delete(id):
 @app.route("/imprimer")
 @login_required
 def imprimer():
-    familles = Famille.query.all()
+    familles = Famille.query.order_by(Famille.nom.asc()).all()
     total_personnes = sum([famille.nb_personnes for famille in familles])
     total_revenue = sum([famille.prix for famille in familles])
     return render_template("imprimer.html", familles=familles, total_personnes=total_personnes,
