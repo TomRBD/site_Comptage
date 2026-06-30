@@ -73,8 +73,8 @@ def logout():
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    normal_price = 20
-    child_price = 12
+    normal_price = 21
+    child_price = 13
     total_revenue = 0
 
     if request.method == "POST":
